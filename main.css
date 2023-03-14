@@ -1,0 +1,148 @@
+main {
+    display: flex;
+}
+
+.elevators {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-self: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.elevator {
+    border: solid 2px black;
+    width: 70vw;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-content: center;
+}
+
+.elevator-button {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 30%;
+}
+
+#elevator-level-2,
+#elevator-level-1 {
+    border-bottom: none;
+}
+
+@media (min-width: 760px) {
+    .elevator {
+        width: 30vw;
+    }
+
+    .elevator-button {
+        width: 20%;
+    }
+}
+
+.elevator-with-button {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+}
+
+
+.elevator-main {
+    height: 160px;
+    min-width: 25vw;
+    max-width: 50vw;
+    margin: auto;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(180deg, rgb(74, 64, 64), rgb(255, 85, 0));
+    position: relative;
+    border-width: 2px orange;
+    background-color: 	#f1c27d;
+}
+
+.elevator-transition {
+    transition: all 5s;
+    transition-timing-function: linear;
+}
+
+.level-header {
+    width: fit-content;
+    align-self: center;
+    border: solid 2px;
+    border-top: none;
+    padding: 0 1rem;
+    z-index: 100;
+}
+
+.icon {
+    position: relative;
+    top: 10%;
+    width: 80px;
+    height: 30vh;
+    cursor: pointer;
+}
+
+.arrow {
+    position: absolute;
+    top: 1.6rem;
+    width: 90%;
+    height: 0.75rem;
+    background-color: #aaa;
+}
+
+.arrow-up {
+    transform: rotate(-90deg);
+}
+
+.arrow-down {
+    transform: rotate(90deg);
+}
+
+#button-down-2,
+#button-up-0 {
+    margin-top: 40%;
+}
+
+.arrow::after,
+.arrow::before {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 0.75rem;
+    right: -0.5rem;
+    background-color: #aaa;
+}
+
+.arrow::after {
+    top: -0.75rem;
+    transform: rotate(45deg);
+}
+
+.arrow::before {
+    top: 0.75rem;
+    transform: rotate(-45deg);
+}
+
+.arrow-down.arrow-green {
+    filter: drop-shadow(4px 0px 1px rgba(15, 125, 15, 0.8));
+}
+     
+.arrow-up.arrow-green {
+    filter: drop-shadow(-4px 0px 1px rgba(15, 125, 15, 0.8));
+}
+  
+.arrow-green, .arrow-green::after, .arrow-green::before {
+    background-color: #2e2;
+}
+  
+.h-30 {
+    height: 30vh;
+}

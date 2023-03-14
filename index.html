@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Elevator Web App</title>
+</head>
+
+<body>
+    <main>
+        <!-- All the elevators -->
+        <section class="elevators">
+
+            <!-- Elevator of the top most level (i.e. 2nd floor) -->
+            <div class="elevator-with-button">
+                <div class="elevator-button">
+                    <div class="icon">
+                        <div onClick="move('DOWN', 2)" class="arrow arrow-down" id="button-down-2">
+                        </div>
+                    </div>
+                </div>
+                <div class="elevator" id="elevator-level-2">
+                    <div class="level-header">Level 2</div>
+                </div>
+            </div>
+
+            <!-- Elevator of the middle floor -->
+            <div class="elevator-with-button">
+                <div class="elevator-button h-30">
+                    <div class="icon">
+                        <div onClick="move('UP', 1)" class="arrow arrow-up" id="button-up-1">
+                        </div>
+                    </div>
+                    <div class="icon">
+                        <div onClick="move('DOWN', 1)" class="arrow arrow-down" id="button-down-1">
+                        </div>
+                    </div>
+                </div>
+                <div class="elevator" id="elevator-level-1">
+                    <div class="level-header">Level 1</div>
+                </div>
+            </div>
+
+            <!-- Elevator of the bottom most level (i.e. Ground floor) -->
+            <div class="elevator-with-button">
+                <div class="elevator-button">
+                    <div class="icon">
+                        <div onClick="move('UP', 0)" class="arrow arrow-up" id="button-up-0">
+                        </div>
+                    </div>
+                </div>
+                <div class="elevator" id="elevator-level-0">
+                    <div class="level-header">Level 0 / GL</div>
+                    <div id="elevator-main" class="elevator-main">Elevator</div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+    <script type="application/javascript" src="script.js"></script>
+</body>
+
+</html>
