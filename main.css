@@ -146,3 +146,7 @@ main {
 .h-30 {
     height: 30vh;
 }
+
+#elevator-audio {
+    display: none;
+}

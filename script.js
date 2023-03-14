@@ -8,7 +8,6 @@ const TOP_MOST_FLOOR = 2;
 const BOTTOM_MOST_FLOOR = 0;
 
 let currentPosition = BOTTOM_MOST_FLOOR; // inititally the elevator is in the ground floor
-let currentDirectionOfMovement = UP;
 
 let movingUp = false;
 let movingDown = false;
@@ -22,6 +21,23 @@ const elevator = document.getElementById("elevator-main");
 let elevatorAtFloor = [];
 for (let i = 0; i <= TOP_MOST_FLOOR - BOTTOM_MOST_FLOOR; i++)
   elevatorAtFloor[i] = document.getElementById(`elevator-level-${i}`);
+
+const audioPlayer = document.getElementById("elevator-audio");
+
+/**
+ * This funciton is used to play the elevator audio.
+ */
+function playAudio() {
+  audioPlayer.play();
+}
+
+/**
+ * This function is used to pause the elevator audio.
+ */
+function pauseAudio() {
+  audioPlayer.pause();
+  audioPlayer.currentTime = null; // resetting the time, so that after pausing each and every time, it will start from the begining
+}
 
 /**
  * This function is used to set the component of a color based on its id.
@@ -106,30 +122,36 @@ function sleep(milliseconds) {
 async function moveElevator() {
   if (currentPosition === TOP_MOST_FLOOR) {
     if (anyButtonPressedAtAnyFloor(DOWN)) {
-      currentDirectionOfMovement = DOWN;
+      playAudio();
       for (let floor = TOP_MOST_FLOOR; floor > BOTTOM_MOST_FLOOR; floor--) {
         if (buttons[floor][DOWN]) {
+          pauseAudio();
           await sleep(ELEVATOR_STOPPAGE_TIME_INTERVAL);
           buttons[floor][DOWN] = false;
           setBgColorOfElementById(`button-down-${floor}`, "#aaa");
+          playAudio();
         }
         transit(getFloorCoordinates(DOWN, floor));
         await sleep(ELEVATOR_MOVEMENT_TIME_INTERVAL);
         movingDown = false;
+        pauseAudio();
       }
     } else movingDown = false;
   } else if (currentPosition === BOTTOM_MOST_FLOOR) {
     if (anyButtonPressedAtAnyFloor(UP)) {
-      currentDirectionOfMovement = UP;
+      playAudio();
       for (let floor = BOTTOM_MOST_FLOOR; floor < TOP_MOST_FLOOR; floor++) {
         if (buttons[floor][UP]) {
+          pauseAudio();
           await sleep(ELEVATOR_STOPPAGE_TIME_INTERVAL);
           buttons[floor][UP] = false;
           setBgColorOfElementById(`button-up-${floor}`, "#aaa");
+          playAudio();
         }
         transit(getFloorCoordinates(UP, floor));
         await sleep(ELEVATOR_MOVEMENT_TIME_INTERVAL);
         movingUp = false;
+        pauseAudio();
       }
     } else movingUp = false;
   }
