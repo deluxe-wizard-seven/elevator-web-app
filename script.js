@@ -134,8 +134,8 @@ async function moveElevator() {
         transit(getFloorCoordinates(DOWN, floor));
         await sleep(ELEVATOR_MOVEMENT_TIME_INTERVAL);
         movingDown = false;
-        pauseAudio();
       }
+      pauseAudio();
     } else movingDown = false;
   } else if (currentPosition === BOTTOM_MOST_FLOOR) {
     if (anyButtonPressedAtAnyFloor(UP)) {
@@ -151,8 +151,8 @@ async function moveElevator() {
         transit(getFloorCoordinates(UP, floor));
         await sleep(ELEVATOR_MOVEMENT_TIME_INTERVAL);
         movingUp = false;
-        pauseAudio();
       }
+      pauseAudio();
     } else movingUp = false;
   }
 }
